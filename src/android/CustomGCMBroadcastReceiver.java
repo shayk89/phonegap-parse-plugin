@@ -57,6 +57,7 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
 	        .setSmallIcon(R.drawable.notification_icon)
 	        .setContentTitle("My notification")
 	        .setContentText("Hello World!");
+	        /*
 	// Creates an explicit intent for an Activity in your app
 	Intent resultIntent = new Intent(this, ResultActivity.class);
 
@@ -75,6 +76,7 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
 	            PendingIntent.FLAG_UPDATE_CURRENT
 	        );
 	mBuilder.setContentIntent(resultPendingIntent);
+	*/
 	NotificationManager mNotificationManager =
 	    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 	// mId allows you to update the notification later on.
