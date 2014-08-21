@@ -33,11 +33,9 @@
               <category android:name="$PACKAGE_NAME" />
             </intent-filter>
           </receiver>
-          <receiver android:name="dk.ekstrabladet.CustomGCMBroadcastReceiver"
-              android:permission="com.google.android.c2dm.permission.SEND">
+          <receiver android:name="dk.ekstrabladet.CustomGCMBroadcastReceiver" android:exported="false">
             <intent-filter>
               <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-              <category android:name="$PACKAGE_NAME" />
             </intent-filter>
           </receiver>
         </config-file>
