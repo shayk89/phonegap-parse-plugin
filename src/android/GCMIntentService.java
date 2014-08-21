@@ -64,6 +64,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
 	public void createNotification(Context context, Bundle extras)
 	{
+		/*
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		String appName = getAppName(this);
 
@@ -116,6 +117,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 		}
 		
 		mNotificationManager.notify((String) appName, notId, mBuilder.build());
+		*/
 	}
 	
 	private static String getAppName(Context context)
