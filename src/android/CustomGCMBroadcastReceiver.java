@@ -9,7 +9,7 @@ import static com.google.android.gcm.GCMConstants.DEFAULT_INTENT_SERVICE_CLASS_N
  * Implementation of GCMBroadcastReceiver that hard-wires the intent service to be 
  * com.plugin.gcm.GCMIntentService, instead of your_package.GCMIntentService 
  */
-public class CordovaGCMBroadcastReceiver extends GCMBroadcastReceiver {
+public class CustomGCMBroadcastReceiver extends GCMBroadcastReceiver {
 	
 	@Override
 	protected String getGCMIntentServiceClassName(Context context) {
