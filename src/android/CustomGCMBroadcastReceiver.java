@@ -82,7 +82,7 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
 	// mId allows you to update the notification later on.
 	//mNotificationManager.notify(mId, mBuilder.build());
 
-	String appName = getAppName(this);
+	String appName = getAppName(context);
 
 	int notId = 0;
 	
