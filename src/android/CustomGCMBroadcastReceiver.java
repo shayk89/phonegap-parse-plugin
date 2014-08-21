@@ -39,6 +39,8 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
       JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
       Bundle extras = intent.getExtras();
  
+      ParseAnalytics.trackAppOpened(intent);
+
       Log.d(TAG, "got action " + action + " on channel " + channel + " with:");
       Iterator itr = json.keys();
       while (itr.hasNext()) {
@@ -53,7 +55,7 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
 
   public void createNotification(Context context, Bundle extras){
 	NotificationCompat.Builder mBuilder =
-	        new NotificationCompat.Builder(this)
+	        new NotificationCompat.Builder(context)
 	        .setSmallIcon(context.getApplicationInfo().icon)
 	        .setContentTitle("My notification")
 	        .setContentText("Hello World!");
@@ -78,7 +80,7 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
 	mBuilder.setContentIntent(resultPendingIntent);
 	*/
 	NotificationManager mNotificationManager =
-	    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+	    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 	// mId allows you to update the notification later on.
 	//mNotificationManager.notify(mId, mBuilder.build());
 
@@ -95,7 +97,7 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
 	catch(Exception e) {
 		Log.e(TAG, "Number format exception - Error parsing Notification ID" + e.getMessage());
 	}
-	
+
 	mNotificationManager.notify((String) appName, notId, mBuilder.build());
   }
 
