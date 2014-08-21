@@ -23,6 +23,19 @@ public class GCMIntentService extends GCMBaseIntentService {
 	public GCMIntentService() {
 		super("GCMIntentService");
 	}
+
+	@Override
+	public void onRegistered(Context context, String regId) {
+
+		Log.v(TAG, "onRegistered: "+ regId);
+
+	}
+
+	@Override
+	public void onUnregistered(Context context, String regId) {
+		Log.d(TAG, "onUnregistered - regId: " + regId);
+	}	
+
 	@Override
 	protected void onMessage(Context context, Intent intent) {
 		Log.d(TAG, "onMessage - context: " + context);
