@@ -1,4 +1,4 @@
-package dk.ekstrabladet.gcm;
+package dk.ekstrabladet;
 
 import android.content.Context;
 
