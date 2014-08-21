@@ -54,7 +54,7 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
   public void createNotification(Context context, Bundle extras){
 	NotificationCompat.Builder mBuilder =
 	        new NotificationCompat.Builder(this)
-	        .setSmallIcon(R.drawable.notification_icon)
+	        .setSmallIcon(context.getApplicationInfo().icon)
 	        .setContentTitle("My notification")
 	        .setContentText("Hello World!");
 	        /*
@@ -80,6 +80,32 @@ private static final String TAG = "CustomGCMBroadcastReceiver";
 	NotificationManager mNotificationManager =
 	    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 	// mId allows you to update the notification later on.
-	mNotificationManager.notify(mId, mBuilder.build());  	
+	//mNotificationManager.notify(mId, mBuilder.build());
+
+	String appName = getAppName(this);
+
+	int notId = 0;
+	
+	try {
+		notId = Integer.parseInt(extras.getString("notId"));
+	}
+	catch(NumberFormatException e) {
+		Log.e(TAG, "Number format exception - Error parsing Notification ID: " + e.getMessage());
+	}
+	catch(Exception e) {
+		Log.e(TAG, "Number format exception - Error parsing Notification ID" + e.getMessage());
+	}
+	
+	mNotificationManager.notify((String) appName, notId, mBuilder.build());
   }
+
+	private static String getAppName(Context context)
+	{
+		CharSequence appName = 
+			context
+				.getPackageManager()
+				.getApplicationLabel(context.getApplicationInfo());
+
+	return (String)appName;
+	}
 }
